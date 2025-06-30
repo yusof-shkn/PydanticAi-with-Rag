@@ -6,3 +6,259 @@
 2025-06-30 11:16:14 | DEBUG | 📚 Loaded 104 document sections
 2025-06-30 11:16:14 | DEBUG | 🕒 Processed: 2025-06-30 10:51:57
 2025-06-30 11:16:29 | WARNING | Chatbot interrupted by user
+2025-06-30 13:30:20 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/what_is_facebook.pdf
+2025-06-30 13:30:20 | DEBUG | Using cached store (hash: 202d78196bffc6e130531b4214bfcf4a)
+2025-06-30 13:30:20 | DEBUG | 🤖 Enhanced RAG Chatbot with PydanticAI
+2025-06-30 13:30:20 | DEBUG | 📚 Loaded 104 document sections
+2025-06-30 13:30:20 | DEBUG | 🕒 Processed: 2025-06-30 10:51:57
+2025-06-30 13:30:36 | DEBUG | User query: hey what are you
+2025-06-30 13:30:48 | DEBUG | Bot response: 
+
+I am a helpful assistant designed to answer questions about Logfire documentation. How can I assist you?
+2025-06-30 13:32:25 | DEBUG | User query: if i give you a link can you answer from the link
+2025-06-30 13:32:32 | DEBUG | Bot response: 
+
+I cannot directly access or process external links, as I don't have the capability to retrieve or analyze web pages. However, if you provide the content from the link or specific questions about Logfire documentation, I'll do my best to help!
+2025-06-30 13:35:27 | DEBUG | User query: quite
+2025-06-30 13:35:34 | DEBUG | Retrieving context for query: quite
+2025-06-30 13:35:35 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 13:35:35 | DEBUG | Retrieved context length: 4785 characters
+2025-06-30 13:36:08 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 13:36:08 | DEBUG | Generating embeddings for 39 sections...
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_303689802826443336
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-2993974744563446915
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-2411117693015634228
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-3936555892417304494
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_6382035037326360788
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-872726453388557527
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_814887457898959550
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_5079652334339957111
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-6633154732905372730
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_2840257687742247604
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_8153146538438988350
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_5332764002429213600
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_8421875405040782451
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-1791513969044694283
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_3433418480706374774
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_6178328356896047845
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-4295066801108966455
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-1339301460007556388
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_2079219621062014567
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_6807838492595831541
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_489663460607277424
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-1134731024477683662
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_4643781603677656968
+2025-06-30 13:36:08 | DEBUG | Creating embedding for section: section_-3569060565427413073
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-6225193560596456656
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_9051618123720833446
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_4180641609964520662
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-5196079657772008310
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-8689665057607782628
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-1855028162898475147
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_5409402512107060640
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-5143932403042741879
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-2294311829775447404
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-1883041414703830633
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-6472330428485740471
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-4847113415666291702
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_8084850249741834778
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-948546866592851760
+2025-06-30 13:36:09 | DEBUG | Creating embedding for section: section_-8459679119825673742
+2025-06-30 13:36:09 | DEBUG | Built new store with 39 sections
+2025-06-30 13:36:09 | DEBUG | 🤖 Enhanced RAG Chatbot with PydanticAI
+2025-06-30 13:36:09 | DEBUG | 📚 Loaded 39 document sections
+2025-06-30 13:36:09 | DEBUG | 🕒 Processed: 2025-06-30 13:36:09
+2025-06-30 13:36:12 | DEBUG | User query: clear
+2025-06-30 13:36:22 | DEBUG | Bot response: 
+
+I cannot perform actions like clearing context or resetting conversations. However, I can help you with any questions about Megafon company documentation. How can I assist you?
+2025-06-30 13:37:31 | DEBUG | User query: quite
+2025-06-30 13:37:35 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 13:37:35 | DEBUG | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 13:37:35 | DEBUG | 🤖 Enhanced RAG Chatbot with PydanticAI
+2025-06-30 13:37:35 | DEBUG | 📚 Loaded 39 document sections
+2025-06-30 13:37:35 | DEBUG | 🕒 Processed: 2025-06-30 13:36:09
+2025-06-30 13:37:47 | DEBUG | User query: what is megafon
+2025-06-30 13:37:54 | DEBUG | Retrieving context for query: Megafon company documentation
+2025-06-30 13:37:54 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 13:37:54 | DEBUG | Retrieved context length: 3837 characters
+2025-06-30 13:39:03 | DEBUG | User query: what is megafon
+2025-06-30 13:39:11 | DEBUG | Retrieving context for query: what is megafon
+2025-06-30 13:39:11 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 13:39:11 | DEBUG | Retrieved context length: 3837 characters
+2025-06-30 13:40:06 | DEBUG | User query: quite
+2025-06-30 13:40:18 | WARNING | Chatbot interrupted by user
+2025-06-30 13:40:23 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 13:40:23 | DEBUG | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 13:40:23 | DEBUG | 🤖 Enhanced RAG Chatbot with PydanticAI
+2025-06-30 13:40:23 | DEBUG | 📚 Loaded 39 document sections
+2025-06-30 13:40:23 | DEBUG | 🕒 Processed: 2025-06-30 13:36:09
+2025-06-30 13:40:40 | DEBUG | User query: what is megafon
+2025-06-30 13:40:46 | DEBUG | Retrieving context for query: Megafon company
+2025-06-30 13:40:46 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 13:40:46 | DEBUG | Retrieved context length: 4548 characters
+2025-06-30 13:42:21 | DEBUG | User exited the chatbot
+2025-06-30 13:42:28 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 13:42:28 | DEBUG | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 13:42:28 | DEBUG | 🤖 Enhanced RAG Chatbot with PydanticAI
+2025-06-30 13:42:28 | DEBUG | 📚 Loaded 39 document sections
+2025-06-30 13:42:28 | DEBUG | 🕒 Processed: 2025-06-30 13:36:09
+2025-06-30 13:59:23 | WARNING | Chatbot interrupted by user
+2025-06-30 13:59:30 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 13:59:30 | DEBUG | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 13:59:35 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 13:59:35 | DEBUG | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 14:00:45 | DEBUG | User query: what is megafon
+2025-06-30 14:00:58 | DEBUG | Retrieving context for query: megafon
+2025-06-30 14:00:58 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:00:58 | DEBUG | Retrieved context length: 3799 characters
+2025-06-30 14:02:21 | DEBUG | User exited the chatbot
+2025-06-30 14:02:25 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 14:02:25 | DEBUG | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 14:02:44 | DEBUG | User query: what is the meaning of megafon
+2025-06-30 14:02:52 | DEBUG | Retrieving context for query: meaning of Megafon
+2025-06-30 14:02:52 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:02:52 | DEBUG | Retrieved context length: 3837 characters
+2025-06-30 14:03:58 | DEBUG | User query: what are the features of megafon
+2025-06-30 14:04:09 | DEBUG | Retrieving context for query: features of megafon
+2025-06-30 14:04:09 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:04:09 | DEBUG | Retrieved context length: 3799 characters
+2025-06-30 14:05:19 | DEBUG | User query: can you response in russian
+2025-06-30 14:05:52 | DEBUG | User query: response in russian what is the features of the megafon company
+2025-06-30 14:05:59 | DEBUG | Retrieving context for query: особенности компании Мегафон
+2025-06-30 14:05:59 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:05:59 | DEBUG | Retrieved context length: 4351 characters
+2025-06-30 14:07:30 | DEBUG | User query: im confused like the documentation was in english how you could response it in russian reponse in russian
+2025-06-30 14:07:46 | DEBUG | Retrieving context for query: language of the documentation
+2025-06-30 14:07:46 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:07:46 | DEBUG | Retrieved context length: 2274 characters
+2025-06-30 14:08:24 | DEBUG | User query: response in english
+2025-06-30 14:09:10 | DEBUG | User query: i have asked you a question and told you to response in russian and you have responded in russian with having the documentation context but how you did it
+2025-06-30 14:09:55 | DEBUG | User query: see answer in english,,,,, i have asked you a question and told you to response in russian and you have responded in russian with having the documentation context but how you did it
+2025-06-30 14:15:15 | WARNING | Chatbot interrupted by user
+2025-06-30 14:15:25 | DEBUG | User exited the chatbot
+2025-06-30 14:15:28 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 14:15:28 | DEBUG | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 14:15:38 | DEBUG | User query: response in russian ,, what is megafon
+2025-06-30 14:15:51 | DEBUG | Retrieving context for query: megafon
+2025-06-30 14:15:51 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:15:51 | DEBUG | Retrieved context length: 3799 characters
+2025-06-30 14:33:25 | WARNING | Chatbot interrupted by user
+2025-06-30 14:33:26 | WARNING | Chatbot interrupted by user
+2025-06-30 14:33:35 | DEBUG | User exited the chatbot
+2025-06-30 14:33:38 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 14:33:38 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 14:33:51 | DEBUG | User query: response in russian what is megafon
+2025-06-30 14:34:05 | DEBUG | Retrieving context for query: what is megafon
+2025-06-30 14:34:05 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:34:05 | DEBUG | Retrieved context length: 3842 characters from 5 sections
+2025-06-30 14:35:36 | ERROR | Error processing query: Request timed out.
+2025-06-30 14:37:44 | WARNING | Chatbot interrupted by user
+2025-06-30 14:37:51 | INFO | User exited the chatbot
+2025-06-30 14:37:54 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 14:37:54 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 14:38:04 | DEBUG | User query: response in russian , what is megafon
+2025-06-30 14:38:33 | DEBUG | Retrieving context for query: Megafon
+2025-06-30 14:38:34 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:38:34 | DEBUG | Retrieved context length: 3804 characters from 5 sections
+2025-06-30 14:40:05 | ERROR | Error processing query: Request timed out.
+2025-06-30 14:50:05 | WARNING | Chatbot interrupted by user
+2025-06-30 14:50:05 | WARNING | Chatbot interrupted by user
+2025-06-30 14:50:13 | INFO | User exited the chatbot
+2025-06-30 14:50:17 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 14:50:17 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 14:50:59 | DEBUG | User query: response in russian , what is megafon
+2025-06-30 14:51:15 | DEBUG | Retrieving context for query: what is megafon
+2025-06-30 14:51:16 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:51:16 | DEBUG | Retrieved context length: 3842 characters from 5 sections
+2025-06-30 14:51:51 | INFO | Query processed successfully in 51.85s
+2025-06-30 14:55:41 | WARNING | Chatbot interrupted by user
+2025-06-30 14:55:41 | WARNING | Chatbot interrupted by user
+2025-06-30 14:55:47 | INFO | User exited the chatbot
+2025-06-30 14:55:50 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 14:55:50 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 14:56:00 | DEBUG | User query: what is megafon
+2025-06-30 14:56:09 | DEBUG | Retrieving context for query: Megafon
+2025-06-30 14:56:09 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 14:56:09 | DEBUG | Retrieved context length: 3804 characters from 5 sections
+2025-06-30 14:56:49 | INFO | Query processed successfully in 48.66s
+2025-06-30 15:18:36 | INFO | User exited the chatbot
+2025-06-30 15:19:17 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 15:19:17 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 15:19:21 | DEBUG | User query: hi
+2025-06-30 15:19:30 | INFO | Query processed successfully in 9.89s
+2025-06-30 15:29:33 | DEBUG | User query: cl
+2025-06-30 15:31:01 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 15:31:01 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 15:31:54 | DEBUG | User query: Расскожи мне о Мегафоне
+2025-06-30 15:32:04 | DEBUG | Retrieving context for queryಸr query: Мегафон
+2025-06-30 15:32:04 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 15:32:04 | DEBUG | Retrieved context length: 4367 characters from 5 sections
+2025-06-30 15:32:43 | INFO | Query processed successfully in 49.17s
+2025-06-30 15:33:32 | DEBUG | User query: ты кто такой
+2025-06-30 15:33:42 | INFO | Query processed successfully in 10.26s
+2025-06-30 15:34:38 | DEBUG | User query: Какие услуги предостовлаеть ваша компания
+2025-06-30 15:34:44 | DEBUG | Retrieving context for queryಸr query: услуги
+2025-06-30 15:34:44 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 15:34:44 | DEBUG | Retrieved context length: 3310 characters from 5 sections
+2025-06-30 15:35:16 | INFO | Query processed successfully in 38.32s
+2025-06-30 15:35:43 | DEBUG | User query: Что за компания Tcell
+2025-06-30 15:35:49 | DEBUG | Retrieving context for queryಸr query: Tcell
+2025-06-30 15:35:50 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 15:35:50 | DEBUG | Retrieved context length: 4544 characters from 5 sections
+2025-06-30 15:36:12 | INFO | Query processed successfully in 28.70s
+2025-06-30 15:36:32 | DEBUG | User query: Что такое леопард
+2025-06-30 15:36:40 | INFO | Query processed successfully in 7.91s
+2025-06-30 15:40:36 | WARNING | Chatbot interrupted by user
+2025-06-30 15:40:37 | WARNING | Chatbot interrupted by user
+2025-06-30 15:40:37 | WARNING | Chatbot interrupted by user
+2025-06-30 15:40:40 | INFO | User exited the chatbot
+2025-06-30 15:40:43 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 15:40:43 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 15:40:47 | WARNING | Chatbot interrupted by user
+2025-06-30 15:40:55 | INFO | User exited the chatbot
+2025-06-30 15:41:26 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 15:41:26 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 15:41:32 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 15:41:32 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 15:41:48 | DEBUG | User query: ezit
+2025-06-30 15:41:48 | ERROR | Error processing query: status_code: 400, model_name: llama3, body: {'message': 'registry.ollama.ai/library/llama3:latest does not support tools', 'type': 'api_error', 'param': None, 'code': None}
+2025-06-30 15:41:55 | INFO | User exited the chatbot
+2025-06-30 15:41:59 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 15:41:59 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 15:42:06 | DEBUG | User query: what is megafon
+2025-06-30 15:42:06 | ERROR | Error processing query: status_code: 400, model_name: llama3, body: {'message': 'registry.ollama.ai/library/llama3:latest does not support tools', 'type': 'api_error', 'param': None, 'code': None}
+2025-06-30 15:46:28 | INFO | User exited the chatbot
+2025-06-30 15:46:34 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 15:46:34 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 15:46:41 | DEBUG | User query: what is megafon
+2025-06-30 15:46:44 | DEBUG | Retrieving context for queryಸr query: Megafon
+2025-06-30 15:46:44 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 15:46:44 | DEBUG | Retrieved context length: 3804 characters from 5 sections
+2025-06-30 15:46:53 | INFO | Query processed successfully in 12.41s
+2025-06-30 15:49:03 | DEBUG | User query: what is the meaning of megafon
+2025-06-30 15:49:04 | DEBUG | Retrieving context for queryಸr query: Megafon meaning
+2025-06-30 15:49:04 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 15:49:04 | DEBUG | Retrieved context length: 3842 characters from 5 sections
+2025-06-30 15:49:08 | INFO | Query processed successfully in 4.61s
+2025-06-30 16:04:45 | WARNING | Chatbot interrupted by user
+2025-06-30 16:04:45 | WARNING | Chatbot interrupted by user
+2025-06-30 16:04:48 | INFO | User exited the chatbot
+2025-06-30 16:04:51 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/MegaFon.pdf
+2025-06-30 16:04:51 | INFO | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-06-30 16:05:00 | DEBUG | User query: what do you know
+2025-06-30 16:05:02 | DEBUG | Retrieving context for queryಸr query: 
+2025-06-30 16:05:02 | DEBUG | Retrieved 0 relevant sections
+2025-06-30 16:05:02 | DEBUG | No relevant information found for query
+2025-06-30 16:05:05 | INFO | Query processed successfully in 4.84s
+2025-06-30 16:05:28 | DEBUG | User query: what do you know
+2025-06-30 16:05:34 | DEBUG | User query: what do you know better
+2025-06-30 16:05:35 | DEBUG | Retrieving context for queryಸr query: Megafon company documentation
+2025-06-30 16:05:35 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 16:05:35 | DEBUG | Retrieved context length: 3842 characters from 5 sections
+2025-06-30 16:05:44 | INFO | Query processed successfully in 10.39s
+2025-06-30 16:05:59 | DEBUG | User query: what is your goal
+2025-06-30 16:06:00 | DEBUG | Retrieving context for queryಸr query: Megafon company documentation goal
+2025-06-30 16:06:00 | DEBUG | Retrieved 5 relevant sections
+2025-06-30 16:06:00 | DEBUG | Retrieved context length: 3809 characters from 5 sections
+2025-06-30 16:06:05 | INFO | Query processed successfully in 6.45s

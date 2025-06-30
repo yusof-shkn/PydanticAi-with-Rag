@@ -44,14 +44,13 @@ class DocStore(BaseModel):
     doc_hash: str
 
     class Config:
-        arbitrary_types_allowed = True  # To allow NumPy arrays
+        arbitrary_types_allowed = True
 
     def get_cache_path(self) -> Path:
         return settings.CACHE_DIR / f"docstore_{self.doc_hash}.pkl"
 
     def save_to_cache(self):
         try:
-            # Convert numpy arrays to list for serialization
             embeddings_list = [emb.tolist() for emb in self.embeddings]
             store_data = {
                 "sections": [sect.dict() for sect in self.sections],
@@ -71,7 +70,6 @@ class DocStore(BaseModel):
             try:
                 with open(cache_file, "rb") as f:
                     store_data = pickle.load(f)
-                    # Convert lists back to numpy arrays
                     embeddings = [np.array(emb) for emb in store_data["embeddings"]]
                     sections = [DocsSection(**sect) for sect in store_data["sections"]]
 

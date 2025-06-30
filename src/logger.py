@@ -14,8 +14,9 @@ def loggerConfig():
         retention="10 days",
         level="DEBUG" if settings.APP_ENV == "development" else "INFO",
     )
-    logger.add(
-        sys.stdout,
-        format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level}</level> | <cyan>{message}</cyan>",
-        level="DEBUG" if settings.APP_ENV == "development" else "INFO",
-    )
+    if settings.APP_ENV == "development":
+        logger.add(
+            sys.stdout,
+            format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level}</level> | <cyan>{message}</cyan>",
+            level="DEBUG" if settings.APP_ENV == "development" else "INFO",
+        )

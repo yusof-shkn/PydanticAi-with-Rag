@@ -1,8 +1,8 @@
 import asyncio
 from datetime import datetime
 
-import logfire
 import numpy as np
+from loguru import logger
 from ollama import AsyncClient
 
 from src.models import DocsSection, DocStore
@@ -14,20 +14,29 @@ from src.utils import chunk_text, cosine_similarity, get_file_hash
 async def generate_embedding_with_retry(
     client: AsyncClient, section: DocsSection
 ) -> np.ndarray:
+    """Enhanced embedding generation with better error handling"""
     last_exception = None
     for attempt in range(settings.MAX_RETRIES):
         try:
-            with logfire.span("creating embedding", section_id=section.section_id):
-                response = await client.embeddings(
-                    model=settings.EMBEDDING_MODEL,
-                    prompt=section.embedding_content(),
-                )
-                return np.array(response["embedding"])
+            logger.debug(f"Creating embedding for section: {section.section_id}")
+            response = await client.embeddings(
+                model=settings.EMBEDDING_MODEL,
+                prompt=section.embedding_content(),
+            )
+            return np.array(response["embedding"])
         except Exception as e:
             last_exception = e
+            logger.warning(
+                f"Embedding attempt {attempt + 1} failed for {section.section_id}: {e}"
+            )
             if attempt < settings.MAX_RETRIES - 1:
-                await asyncio.sleep(2**attempt)
-    raise RuntimeError(f"Embedding failed for {section.section_id}") from last_exception
+                wait_time = 2**attempt
+                logger.info(f"Retrying in {wait_time} seconds...")
+                await asyncio.sleep(wait_time)
+
+    raise RuntimeError(
+        f"Embedding failed for {section.section_id} after {settings.MAX_RETRIES} attempts"
+    ) from last_exception
 
 
 async def build_search_store(doc_file: str) -> DocStore:

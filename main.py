@@ -13,10 +13,8 @@ async def main():
 
     print("🚀 Starting RAG Chatbot...")
 
-    # Build or load store
     store = await build_search_store(str(settings.DOCS_FILE))
 
-    # Validate store
     if not hasattr(store, "sections") or not store.sections:
         raise ValueError("❌ Invalid store: missing sections")
 
@@ -24,6 +22,7 @@ async def main():
 
     if args.command == "chat":
         await run_chatbot(store)
+        
     elif args.command == "train":
         print("📚 Training complete - Store is ready for chat")
 
