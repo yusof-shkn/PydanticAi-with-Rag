@@ -1,0 +1,8 @@
+2025-06-30 11:12:58 | INFO | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/what_is_facebook.pdf
+2025-06-30 11:12:58 | INFO | Using cached store (hash: 202d78196bffc6e130531b4214bfcf4a)
+2025-06-30 11:16:14 | DEBUG | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/data/what_is_facebook.pdf
+2025-06-30 11:16:14 | DEBUG | Using cached store (hash: 202d78196bffc6e130531b4214bfcf4a)
+2025-06-30 11:16:14 | DEBUG | 🤖 Enhanced RAG Chatbot with PydanticAI
+2025-06-30 11:16:14 | DEBUG | 📚 Loaded 104 document sections
+2025-06-30 11:16:14 | DEBUG | 🕒 Processed: 2025-06-30 10:51:57
+2025-06-30 11:16:29 | WARNING | Chatbot interrupted by user
