@@ -1,6 +1,3 @@
-Here's a comprehensive `README.md` for your RAG Chatbot project with instructions for setup, usage, and deployment:
-
-```markdown
 # Enhanced RAG Chatbot with PydanticAI
 
 ![RAG Chatbot Demo](https://via.placeholder.com/800x400?text=RAG+Chatbot+Demo)
@@ -145,46 +142,3 @@ tail -f bot.log
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details
-
-```
-
-## Key Components Explained
-
-### 1. Ollama Setup
-- Requires Ollama server running locally
-- Uses two models:
-  - `llama3:8b` for text generation
-  - `nomic-embed-text` for embeddings
-
-### 2. UV Workflow
-- `uv` replaces pip/virtualenv for faster operations
-- Key commands:
-  - `uv venv .venv`: Create virtual environment
-  - `uv pip install`: Install dependencies
-  - `uv run`: Execute Python scripts
-
-### 3. Document Processing Flow
-1. **Training Phase**:
-   - PDF → Text extraction → Chunking → Embedding generation → Vector store
-2. **Chat Phase**:
-   - User query → Embedding → Similarity search → Context retrieval → LLM response
-
-### 4. Performance Considerations
-- First run processes PDF (slower)
-- Subsequent runs use cached embeddings
-- Adjust chunk size for quality/speed tradeoff
-- Use GPU acceleration with Ollama for faster inference
-
-### 5. Logging System
-- All operations logged to `bot.log`
-- Console shows colorized output
-- Automatic log rotation (10MB files, 10 day retention)
-
-## Suggested Improvements
-1. Add support for multiple document types (DOCX, HTML)
-2. Implement web UI with Gradio/Streamlit
-3. Add hybrid search (keyword + semantic)
-4. Include citation references in responses
-5. Add automated testing suite
-
-This documentation provides everything needed to set up, run, and understand your RAG chatbot project while highlighting the integration of Ollama and UV.
