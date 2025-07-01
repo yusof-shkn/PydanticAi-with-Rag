@@ -5,13 +5,18 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "dnspython>=2.7.0",
+    "fastapi>=0.115.13",
+    "fitz>=0.0.1.dev2",
     "httpx>=0.28.1",
     "litellm>=1.73.6",
     "logfire>=3.21.1",
     "loguru>=0.7.3",
+    "motor>=3.7.1",
     "numpy>=2.3.1",
     "ollama>=0.5.1",
     "openai>=1.91.0",
     "pydantic-ai[examples]>=0.3.4",
     "pypdf2>=3.0.1",
+    "uvicorn>=0.34.3",
 ]

@@ -7,8 +7,8 @@ from ollama import AsyncClient
 
 from src.models import DocsSection, DocStore
 from src.pdf_processing import extract_pdf_content
-from src.settings import settings
 from src.utils import chunk_text, cosine_similarity, get_file_hash
+from src.config.settings import settings
 
 
 async def generate_embedding_with_retry(

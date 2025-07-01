@@ -6,7 +6,7 @@ from typing import List, Optional
 import numpy as np
 from pydantic import BaseModel, Field, field_validator
 
-from src.settings import settings
+from src.config.settings import settings
 
 
 class DocsSection(BaseModel):
@@ -16,6 +16,8 @@ class DocsSection(BaseModel):
     section_id: str = Field(default_factory=lambda: f"section_{hash(datetime.now())}")
     page_num: Optional[int] = None
     word_count: int = Field(default=0, exclude=True)
+    source_document: Optional[str] = None
+    was_used_in_context: bool = Field(default=False, exclude=True)
 
     @field_validator("content")
     def clean_content(cls, v):
@@ -42,11 +44,14 @@ class DocStore(BaseModel):
     embeddings: List[np.ndarray]
     created_at: datetime
     doc_hash: str
+    source_document: Optional[str] = None
 
     class Config:
         arbitrary_types_allowed = True
 
     def get_cache_path(self) -> Path:
+        if self.doc_hash == "multi_pdf_store":
+            return settings.CACHE_DIR / "multi_pdf_store.pkl"
         return settings.CACHE_DIR / f"docstore_{self.doc_hash}.pkl"
 
     def save_to_cache(self):

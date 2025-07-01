@@ -262,3 +262,63 @@ I cannot perform actions like clearing context or resetting conversations. Howev
 2025-06-30 16:06:00 | DEBUG | Retrieved 5 relevant sections
 2025-06-30 16:06:00 | DEBUG | Retrieved context length: 3809 characters from 5 sections
 2025-06-30 16:06:05 | INFO | Query processed successfully in 6.45s
+2025-07-01 13:55:21 | INFO | src.logger:loggerConfig:27 | Logger configured successfully
+2025-07-01 13:55:21 | INFO | src.logger:loggerConfig:28 | Log file: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/logs/bot.log
+2025-07-01 13:55:21 | INFO | src.logger:loggerConfig:29 | Environment: development
+2025-07-01 13:55:21 | INFO | src.chatbot:build_search_store:106 | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/documents/MegaFon.pdf
+2025-07-01 13:55:21 | INFO | src.chatbot:build_search_store:110 | Using cached store (hash: 3bce792be62963eda3c785f0382f9f89)
+2025-07-01 13:55:21 | INFO | src.chatbot:build_search_store:106 | Building search store for: /Users/yusof_0090/practice_projects/pydanticAi_rag_chatbot/documents/i0500e02.pdf
+2025-07-01 13:55:21 | INFO | src.chatbot:build_search_store:110 | Using cached store (hash: 577e571670a92b71b3e1bc0131c2cd68)
+2025-07-01 13:55:29 | DEBUG | src.chatbot:run_enhanced_chatbot:354 | User query: what is potato
+2025-07-01 13:55:30 | INFO | src.chatbot:retrieve_context:204 | Starting context retrieval for: 'potato'
+2025-07-01 13:55:30 | INFO | src.chatbot:retrieve_context:235 | Retrieving enhanced context for: 'potato'
+2025-07-01 13:55:30 | INFO | src.utils:retrieve_enhanced:60 | Starting enhanced retrieval for: 'potato'
+2025-07-01 13:55:30 | DEBUG | src.utils:retrieve_enhanced:68 | Generated query embedding
+2025-07-01 13:55:30 | INFO | src.utils:retrieve_enhanced:79 | Found 98 sections above threshold
+2025-07-01 13:55:30 | INFO | src.utils:retrieve_enhanced:85 | Top 5 results selected
+2025-07-01 13:55:30 | DEBUG | src.utils:retrieve_enhanced:91 | Result 1: Page 16 - Part 2 | Score: 0.738 | Source: potato.pdf
+2025-07-01 13:55:30 | DEBUG | src.utils:retrieve_enhanced:91 | Result 2: Page 16 - Part 1 | Score: 0.723 | Source: potato.pdf
+2025-07-01 13:55:30 | DEBUG | src.utils:retrieve_enhanced:91 | Result 3: Page 15 - Part 2 | Score: 0.716 | Source: potato.pdf
+2025-07-01 13:55:30 | DEBUG | src.utils:retrieve_enhanced:91 | Result 4: Page 13 - Part 3 | Score: 0.704 | Source: potato.pdf
+2025-07-01 13:55:30 | DEBUG | src.utils:retrieve_enhanced:91 | Result 5: Page 14 - Part 2 | Score: 0.696 | Source: potato.pdf
+2025-07-01 13:55:30 | INFO | src.chatbot:retrieve_context:245 | Found 5 relevant sections
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:248 | Section source: potato.pdf | Score: 0.738
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: potato.pdf
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:248 | Section source: potato.pdf | Score: 0.723
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: potato.pdf
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:248 | Section source: potato.pdf | Score: 0.716
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: potato.pdf
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:248 | Section source: potato.pdf | Score: 0.704
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: potato.pdf
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:248 | Section source: potato.pdf | Score: 0.696
+2025-07-01 13:55:30 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: potato.pdf
+2025-07-01 13:55:30 | INFO | src.chatbot:retrieve_context:262 | Retrieved context length: 4934 characters
+2025-07-01 13:55:30 | INFO | src.chatbot:retrieve_context:263 | Sources used: {'potato.pdf'}
+2025-07-01 13:55:39 | INFO | src.chatbot:run_enhanced_chatbot:379 | Response generated: A simple question with a rich answer! A potato is a starchy vegetable that belongs to the Solanum tu...
+2025-07-01 13:55:39 | INFO | src.chatbot:run_enhanced_chatbot:383 | Sources from cache: set()
+2025-07-01 13:55:39 | INFO | src.chatbot:run_enhanced_chatbot:401 | Displaying sources: {'potato.pdf'}
+2025-07-01 13:55:51 | DEBUG | src.chatbot:run_enhanced_chatbot:354 | User query: git status
+2025-07-01 13:55:52 | INFO | src.chatbot:retrieve_context:204 | Starting context retrieval for: 'git status'
+2025-07-01 13:55:52 | INFO | src.chatbot:retrieve_context:235 | Retrieving enhanced context for: 'git status'
+2025-07-01 13:55:52 | INFO | src.utils:retrieve_enhanced:60 | Starting enhanced retrieval for: 'git status'
+2025-07-01 13:55:52 | DEBUG | src.utils:retrieve_enhanced:68 | Generated query embedding
+2025-07-01 13:55:52 | INFO | src.utils:retrieve_enhanced:79 | Found 98 sections above threshold
+2025-07-01 13:55:52 | INFO | src.utils:retrieve_enhanced:85 | Top 5 results selected
+2025-07-01 13:55:52 | DEBUG | src.utils:retrieve_enhanced:91 | Result 1: Page 6 - Part 6 | Score: 0.467 | Source: MegaFon.pdf
+2025-07-01 13:55:52 | DEBUG | src.utils:retrieve_enhanced:91 | Result 2: Page 5 - Part 5 | Score: 0.462 | Source: MegaFon.pdf
+2025-07-01 13:55:52 | DEBUG | src.utils:retrieve_enhanced:91 | Result 3: Page 8 - Part 2 | Score: 0.450 | Source: MegaFon.pdf
+2025-07-01 13:55:52 | DEBUG | src.utils:retrieve_enhanced:91 | Result 4: Page 4 - Part 2 | Score: 0.449 | Source: MegaFon.pdf
+2025-07-01 13:55:52 | DEBUG | src.utils:retrieve_enhanced:91 | Result 5: Page 12 - Part 4 | Score: 0.444 | Source: potato.pdf
+2025-07-01 13:55:52 | INFO | src.chatbot:retrieve_context:245 | Found 5 relevant sections
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:248 | Section source: MegaFon.pdf | Score: 0.467
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: MegaFon.pdf
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:248 | Section source: MegaFon.pdf | Score: 0.462
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: MegaFon.pdf
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:248 | Section source: MegaFon.pdf | Score: 0.450
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: MegaFon.pdf
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:248 | Section source: MegaFon.pdf | Score: 0.449
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: MegaFon.pdf
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:248 | Section source: potato.pdf | Score: 0.444
+2025-07-01 13:55:52 | DEBUG | src.chatbot:retrieve_context:254 | Adding source: potato.pdf
+2025-07-01 13:55:52 | INFO | src.chatbot:retrieve_context:262 | Retrieved context length: 2746 characters
+2025-07-01 13:55:52 | INFO | src.chatbot:retrieve_context:263 | Sources used: {'potato.pdf', 'MegaFon.pdf'}

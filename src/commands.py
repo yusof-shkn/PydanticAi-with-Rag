@@ -9,8 +9,8 @@ from loguru import logger
 from pydantic import BaseModel, Field
 
 from src.models import DocStore
-from src.settings import settings
 from src.utils import retrieve_enhanced
+from src.config.settings import settings
 
 
 class SearchQuery(BaseModel):

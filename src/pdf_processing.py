@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import List, Tuple
 
 import PyPDF2
@@ -22,3 +23,16 @@ async def extract_pdf_content(filepath: str) -> List[Tuple[str, int]]:
         raise FileNotFoundError(f"PDF not found: {filepath}")
     except Exception as e:
         raise Exception(f"PDF read error: {e}")
+
+
+def get_pdf_files(docs_path: str) -> List[str]:
+    """Get all PDF files from a directory"""
+    path = Path(docs_path)
+
+    if path.is_dir():
+        pdf_files = list(path.glob("*.pdf"))
+        if not pdf_files:
+            raise ValueError(f"No PDF files found in directory: {docs_path}")
+        return [str(pdf) for pdf in sorted(pdf_files)]
+
+    raise ValueError(f"Invalid path: {docs_path}")

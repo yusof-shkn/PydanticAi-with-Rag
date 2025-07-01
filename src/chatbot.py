@@ -1,9 +1,11 @@
 import asyncio
 import os
+import re  # Add this import at the top
 import time
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Dict
+from pathlib import Path
+from typing import Dict, List
 
 from loguru import logger
 from ollama import AsyncClient
@@ -13,11 +15,11 @@ from pydantic_ai.providers.openai import OpenAIProvider
 from pydantic_ai.settings import ModelSettings
 
 from src.commands import ChatbotCommands, SearchQuery
+from src.config.settings import settings
 from src.embedding import generate_embedding_with_retry
-from src.logger import loggerConfig
+from src.logger import loggerConfig, setup_logger
 from src.models import DocsSection, DocStore
 from src.pdf_processing import extract_pdf_content
-from src.settings import settings
 from src.utils import chunk_text, get_file_hash, retrieve_enhanced
 
 os.environ["OLLAMA_API_BASE"] = "http://localhost:11434"
@@ -77,6 +79,28 @@ class LoadingAnimation:
             logger.error(f"Animation error: {e}")
 
 
+async def build_multi_pdf_store(pdf_files: List[str]) -> DocStore:
+    """Build combined store from multiple PDF files"""
+    stores = []
+    for pdf_file in pdf_files:
+        store = await build_search_store(pdf_file)
+        stores.append(store)
+
+    # Combine all sections and embeddings
+    all_sections = []
+    all_embeddings = []
+    for store in stores:
+        all_sections.extend(store.sections)
+        all_embeddings.extend(store.embeddings)
+
+    return DocStore(
+        sections=all_sections,
+        embeddings=all_embeddings,
+        created_at=datetime.now(),
+        doc_hash="multi_pdf_store",  # Special hash for multi-doc
+    )
+
+
 async def build_search_store(doc_file: str) -> DocStore:
     """Enhanced search store building with better error handling"""
     logger.info(f"Building search store for: {doc_file}")
@@ -100,7 +124,11 @@ async def build_search_store(doc_file: str) -> DocStore:
                 )
                 url = f"local://page_{page_num}_chunk_{i}"
                 section = DocsSection(
-                    url=url, title=title, content=chunk, page_num=page_num
+                    url=url,
+                    title=title,
+                    content=chunk,
+                    page_num=page_num,
+                    source_document=Path(doc_file).name,
                 )
                 sections.append(section)
 
@@ -122,6 +150,7 @@ async def build_search_store(doc_file: str) -> DocStore:
             embeddings=embeddings,
             created_at=datetime.now(),
             doc_hash=doc_hash,
+            source_document=Path(doc_file).name,
         )
         store.save_to_cache()
         return store
@@ -138,7 +167,8 @@ class EnhancedDeps:
     ollama: AsyncClient
     session_id: str = "default"
     context_cache: Dict[str, str] = field(default_factory=dict)
-    response_cache: Dict[str, str] = field(default_factory=dict)
+    sources_cache: Dict[str, set] = field(default_factory=dict)
+    response_cache: Dict[str, tuple] = field(default_factory=dict)
 
 
 agent = Agent(
@@ -163,31 +193,78 @@ Remember: All responses must be in {settings.LANGUAGE} only.""",
 )
 
 
+# In chatbot.py
+
+
 @agent.tool
 async def retrieve_context(context: RunContext[EnhancedDeps], search_query: str) -> str:
     """Retrieve relevant context for the query from the Megafon documentation with caching"""
     deps = context.deps
     query_key = search_query.lower()
-    if query_key in deps.context_cache:
-        logger.debug(f"Using cached context for query: {search_query}")
+    logger.info(f"Starting context retrieval for: '{search_query}'")
+
+    # Check if we have both context and sources cached
+    if query_key in deps.context_cache and query_key in deps.sources_cache:
+        logger.info(f"Using cached context for query: {search_query}")
+        logger.debug(f"Cached sources: {deps.sources_cache[query_key]}")
         return deps.context_cache[query_key]
 
     try:
-        retrieved = await retrieve_enhanced(deps.store, deps.ollama, search_query)
+        # NEW: Detect multi-topic queries
+        if " and " in search_query.lower():
+            logger.info("Detected multi-topic query")
+            topics = re.split(r"\s+and\s+", search_query, flags=re.IGNORECASE)
+            topics = [t.strip() for t in topics if t.strip()]
+
+            all_retrieved = []
+            for topic in topics:
+                logger.info(f"Retrieving context for subtopic: '{topic}'")
+                topic_retrieved = await retrieve_enhanced(
+                    deps.store, deps.ollama, topic, max_results=3
+                )
+                all_retrieved.extend(topic_retrieved)
+
+            # Remove duplicates
+            seen_sections = set()
+            retrieved = []
+            for section, score in all_retrieved:
+                if section.section_id not in seen_sections:
+                    seen_sections.add(section.section_id)
+                    retrieved.append((section, score))
+        else:
+            logger.info(f"Retrieving enhanced context for: '{search_query}'")
+            retrieved = await retrieve_enhanced(deps.store, deps.ollama, search_query)
+
         if not retrieved:
-            logger.debug("No relevant information found for query")
+            logger.info("No relevant information found for query")
             context_str = "No relevant information found in the Megafon documentation for this query."
+            sources_used = set()
         else:
             context_pieces = []
-            for section, score in retrieved:
-                context_pieces.append(f"[Source: {section.title}]\n{section.content}")
-            context_str = "\n\n---\n\n".join(context_pieces)
-            logger.debug(
-                f"Retrieved context length: {len(context_str)} characters from {len(retrieved)} sections"
-            )
+            sources_used = set()
+            logger.info(f"Found {len(retrieved)} relevant sections")
 
-        # Cache the context
+            for section, score in retrieved:
+                logger.debug(
+                    f"Section source: {section.source_document} | Score: {score:.3f}"
+                )
+                context_pieces.append(f"[Source: {section.title}]\n{section.content}")
+
+                if section.source_document:
+                    logger.debug(f"Adding source: {section.source_document}")
+                    sources_used.add(section.source_document)
+                    # Mark section as used
+                    section.was_used_in_context = True
+                else:
+                    logger.warning(f"Section has no source_document: {section.title}")
+
+            context_str = "\n\n---\n\n".join(context_pieces)
+            logger.info(f"Retrieved context length: {len(context_str)} characters")
+            logger.info(f"Sources used: {sources_used}")
+
+        # Cache both context and sources
         deps.context_cache[query_key] = context_str
+        deps.sources_cache[query_key] = sources_used
         return context_str
     except Exception as e:
         logger.error(f"Context retrieval error: {e}")
@@ -252,6 +329,9 @@ async def run_enhanced_chatbot(store: DocStore):
             if not query:
                 continue
 
+            # Reset sources for new query
+            used_sources = set()
+
             if query.lower() in ["exit", "quit", "bye"]:
                 print("\n👋 Thanks for using the Enhanced RAG Chatbot! Goodbye!")
                 logger.info("User exited the chatbot")
@@ -274,10 +354,15 @@ async def run_enhanced_chatbot(store: DocStore):
             logger.debug(f"User query: {query}")
             query_lower = query.lower()
             if query_lower in deps.response_cache:
-                response = deps.response_cache[query_lower]
+                response, sources = deps.response_cache[query_lower]
                 print(f"\n🤖 Assistant: {response}")
+                if sources:
+                    print("\n📚 Source PDFs:")
+                    for src in sources:
+                        print(f"  - {src}")
+                else:
+                    print("\nℹ️ No specific PDF sources identified")
                 print("\n⏱️ Response time: 0.00s (cached)")
-                commands.add_to_history(query, response)
                 continue
 
             loading = LoadingAnimation("Generating response")
@@ -291,14 +376,61 @@ async def run_enhanced_chatbot(store: DocStore):
                 await loading.stop()
                 response_time = time.time() - start_time
                 response = result.output
+                logger.info(f"Response generated: {response[:100]}...")
 
+                # Get sources from source_cache - handle missing entries
+                used_sources = deps.sources_cache.get(query_lower, set())
+                logger.info(f"Sources from cache: {used_sources}")
+
+                if not used_sources:
+                    # Find sections that were actually used
+                    used_sources = {
+                        section.source_document
+                        for section in store.sections
+                        if getattr(section, "was_used_in_context", False)
+                        and section.source_document
+                    }
+                    # Clear the markers for next query
+                    for section in store.sections:
+                        if hasattr(section, "was_used_in_context"):
+                            del section.was_used_in_context
                 print(f"\n🤖 Assistant: {response}")
+
+                # Display source PDFs
+                if used_sources:
+                    logger.info(f"Displaying sources: {used_sources}")
+                    print("\n📚 Source PDFs:")
+                    for src in used_sources:
+                        print(f"  - {src}")
+                else:
+                    # Try to get document name from store if possible
+                    doc_name = getattr(store, "source_document", None)
+                    logger.info(f"Store source_document: {doc_name}")
+
+                    if doc_name:
+                        print(f"\n📚 Source PDF: {doc_name}")
+                    else:
+                        # For multi-doc stores, check if sections have sources
+                        section_sources = {
+                            s.source_document
+                            for s in store.sections
+                            if s.source_document
+                        }
+                        logger.info(f"Section sources: {section_sources}")
+
+                        if section_sources:
+                            print("\n📚 Source PDFs:")
+                            for src in section_sources:
+                                print(f"  - {src}")
+                        else:
+                            logger.warning("No sources found in store or sections")
+                            print("\nℹ️ No specific PDF sources identified")
+
                 print(f"\n⏱️ Response time: {response_time:.2f}s")
 
-                # Cache the response
-                deps.response_cache[query_lower] = response
+                # Cache response with sources
+                deps.response_cache[query_lower] = (response, used_sources)
                 commands.add_to_history(query, response)
-                logger.info(f"Query processed successfully in {response_time:.2f}s")
             except Exception as e:
                 await loading.stop()
                 logger.error(f"Error processing query: {e}")
@@ -323,6 +455,8 @@ async def run_chatbot(store: DocStore):
 
 if __name__ == "__main__":
     import asyncio
+
+    setup_logger()
 
     async def main():
         pass
